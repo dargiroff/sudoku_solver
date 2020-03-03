@@ -1,7 +1,13 @@
-# solver.py
 
 
 def solve(bo):
+    """
+    Solves the input sudoku board
+    :param bo: list if lists
+        A list of lists, each of the latter is a row on the sudoku board
+    :return: bool
+        True or Solve based on if the sudoku board is successfully solved or not
+    """
     find = find_empty(bo)
     if not find:
         return True
@@ -21,6 +27,17 @@ def solve(bo):
 
 
 def valid(bo, num, pos):
+    """
+
+    :param bo: list of lists
+         A list of lists, each of the latter is a row on the sudoku board
+    :param num: int
+        A number in a cell of the sudoku board
+    :param pos: tuple
+        A two-value tuple determining the position of a number entered into the sudoku board
+    :return: bool
+        True or False based on if the cells are filled with valid numbers
+    """
     # Check row
     for i in range(len(bo[0])):
         if bo[pos[0]][i] == num and pos[1] != i:
@@ -44,6 +61,12 @@ def valid(bo, num, pos):
 
 
 def print_board(bo):
+    """
+    A utility function that prints the contents of the sudoku board in the console
+
+    :param bo: list of lists
+         A list of lists, each of the latter is a row on the sudoku board
+    """
     for i in range(len(bo)):
         if i % 3 == 0 and i != 0:
             print("- - - - - - - - - - - - - ")
@@ -59,6 +82,13 @@ def print_board(bo):
 
 
 def find_empty(bo):
+    """
+    Finds empty cells on the sudoku board
+
+    :param bo: list of lists
+         A list of lists, each of the latter is a row on the sudoku board
+    :return: None
+    """
     for i in range(len(bo)):
         for j in range(len(bo[0])):
             if bo[i][j] == 0:
