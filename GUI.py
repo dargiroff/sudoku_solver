@@ -89,7 +89,7 @@ class Grid:
             gap = self.width / 9
             x = pos[0] // gap
             y = pos[1] // gap
-            return (int(y), int(x))
+            return int(y), int(x)
         else:
             return None
 
